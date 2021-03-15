@@ -1,4 +1,4 @@
-import { ISetUserInfo, ILogOut, ISetLanguage } from 'models/ISessionActions';
+import { ISetUserInfo, ILogOut, ISetLanguage } from 'models/redux/ISessionActions';
 
 export enum sessionTypes {
   SET_LANGUAGE = 'session/SET_LANGUAGE',

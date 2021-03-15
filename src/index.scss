@@ -12,6 +12,7 @@ $gray-900: #212529 !default;
 $black: #000 !default;
 
 $blue: #0073c9 !default;
+$dark-primary: #183446 !default;
 $indigo: #beb4ce !default;
 $purple: #6f42c1 !default;
 $pink: #d63384 !default;
@@ -21,6 +22,8 @@ $yellow: #ffc107 !default;
 $green: #28a745 !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
+$background: #f6f7f9 !default;
+$primary-light:  rgba(0, 115, 201, 0.7) !default;
 
 $theme-colors: (
   'primary': $blue,
@@ -32,6 +35,9 @@ $theme-colors: (
   'light': $gray-100,
   'dark': $gray-800,
   'disabled': $gray-500,
+  'background': $background,
+  'dark-primary': $dark-primary,
+  'primary-light': $primary-light
 );
 
 @import '~bootstrap/scss/bootstrap';
@@ -46,5 +52,5 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e2e8f1 !important;
+  background-color: var(--background) !important;
 }

@@ -1,5 +1,11 @@
 import { Container } from 'react-bootstrap';
 
-const CoursesManagement = () => <Container fluid>Example</Container>;
+import { UnderConstruction } from 'components';
+
+const CoursesManagement = () => (
+  <Container fluid>
+    <UnderConstruction />
+  </Container>
+);
 
 export default CoursesManagement;

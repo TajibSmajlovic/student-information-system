@@ -1,4 +1,4 @@
-import ILanguage from 'models/ILanguage';
+import ILanguage from 'models/redux/ILanguage';
 import { LANGUAGES, LANG_KEY } from 'utils/constants';
 
 export const getDefaultLanguage = () => {

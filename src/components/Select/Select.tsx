@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { Dropdown } from 'react-bootstrap';
+
+import { CustomDropdownMenu, DropdownItemBox, DropdownItemText } from './Select.styles';
 
 interface IProps<T> {
   activeItem?: T | any;
@@ -27,19 +28,5 @@ const Select = <T,>({ activeItem, items, variant = 'light', align = 'right', onS
     </CustomDropdownMenu>
   </Dropdown>
 );
-
-const CustomDropdownMenu = styled(Dropdown.Menu)`
-  max-height: 250px;
-  overflow: auto;
-`;
-
-const DropdownItemBox = styled(Dropdown.Item)`
-  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
-`;
-
-const DropdownItemText = styled(({ value, ...rest }) => <div {...rest}>{value}</div>)`
-  font-size: 14px;
-  line-height: 1.57;
-`;
 
 export default Select;

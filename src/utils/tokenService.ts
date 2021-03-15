@@ -1,6 +1,6 @@
 import decode from 'jwt-decode';
 
-import IToken from 'models/IToken';
+import IToken from 'models/redux/IToken';
 import { TOKEN_KEY } from 'utils/constants';
 
 export const setToken = (token: string) => {

@@ -1,10 +1,9 @@
-import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Dropdown } from 'react-bootstrap';
 
+import ILanguage from 'models/redux/ILanguage';
+import { CustomToggle, Icon, LanguageContainer } from './LanguageSelect.styles';
 import { Select } from 'components';
-import ILanguage from 'models/ILanguage';
 import { getLanguage } from 'store/reducers/sessionReducer';
 import { setLanguage } from 'store/actions';
 import { LANGUAGES, LOCALIZATION_PAGES } from 'utils/constants';
@@ -37,28 +36,5 @@ const LanguageSelect = () => {
     </LanguageContainer>
   );
 };
-
-const CustomToggle = styled(Dropdown.Toggle)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--white);
-  border: solid 1px #d8dce6;
-
-  :after {
-    display: none;
-  }
-`;
-
-const LanguageContainer = styled.div`
-  height: 38px;
-  width: 104px;
-  align-items: center;
-`;
-
-const Icon = styled.img`
-  height: 15px;
-  width: 15px;
-`;
 
 export default LanguageSelect;

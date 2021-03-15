@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 
 import SideMenuLink from './SideMenuLink';
+import { Title } from './SideMenu.styles';
 import { IConfigurableRoute } from 'utils/routes/IRoutes';
 import { useHistory } from 'react-router-dom';
 import { matchRoute } from 'utils/routes/routes';
@@ -30,13 +30,5 @@ const SideMenuLinks = ({ titleLabel, links }: IProps) => {
     </>
   );
 };
-
-const Title = styled(({ title, ...rest }) => <div {...rest}>{title}</div>)`
-  color: var(--dark);
-  font-size: 12px;
-  padding: 8px 10px;
-  font-weight: 500;
-  line-height: 1.5;
-`;
 
 export default SideMenuLinks;

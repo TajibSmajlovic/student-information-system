@@ -1,6 +1,6 @@
-import IUser from 'models/IUser';
-import ILanguage from 'models/ILanguage';
-import { ISetLanguage, ILogOut, ISetUserInfo } from 'models/ISessionActions';
+import IUser from 'models/redux/IUser';
+import ILanguage from 'models/redux/ILanguage';
+import { ISetLanguage, ILogOut, ISetUserInfo } from 'models/redux/ISessionActions';
 import { sessionTypes } from 'store/types/sessionTypes';
 import { setCurrentLanguageInStorage } from 'utils/localization/localization';
 import { removeToken } from 'utils/tokenService';

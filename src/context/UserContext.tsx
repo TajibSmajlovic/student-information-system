@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { useEffect, useMemo, useState, useContext, useCallback, createContext, ReactNode } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import ILanguage from 'models/ILanguage';
+import ILanguage from 'models/redux/ILanguage';
 import { setLanguage } from 'store/actions';
 import { getLanguage, getUser } from 'store/reducers/sessionReducer';
 import { loggedIn } from 'utils/tokenService';

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 import UsersDropdown from './UsersDropdown';
+import { Navigation, Logo } from './Navigation.styles';
 import { LanguageSelect } from 'components';
 
 const Header = () => (
@@ -14,18 +14,5 @@ const Header = () => (
     <UsersDropdown />
   </Navigation>
 );
-
-const Logo = styled.img`
-  height: 80px;
-`;
-
-const Navigation = styled(Navbar)`
-  top: 0;
-  height: 80px;
-  position: sticky;
-  align-items: center;
-  background-color: var(--white);
-  box-shadow: rgb(0 0 0 / 25%) 1px 3px 5px -2px;
-`;
 
 export default Header;

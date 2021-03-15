@@ -5,7 +5,7 @@ import { generatePath, matchPath } from 'react-router';
 import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { Container as CustomContainer } from 'react-bootstrap';
 
-import IUser from 'models/IUser';
+import IUser from 'models/redux/IUser';
 import { PrivateRoute, SideMenu, Navigation, Loader } from 'components';
 import { IRoute, IParam, IRoutes, ISharedRoutes, IAdminRoutes, IConfigurableRoute } from 'utils/routes/IRoutes';
 import { getUser } from 'store/reducers/sessionReducer';
@@ -13,7 +13,7 @@ import { USER_ROLES } from 'utils/enums';
 
 const Login = lazy(() => import('views/Login'));
 const CoursesManagement = lazy(() => import('views/CoursesManagement'));
-const ProfessorsManagement = lazy(() => import('views/ProfessorsManagement'));
+const UsersManagement = lazy(() => import('views/UsersManagement'));
 
 const sharedRoutes: ISharedRoutes = {
   LOGIN: {
@@ -49,31 +49,18 @@ const adminRoutes: IAdminRoutes = {
     },
     Component: CoursesManagement,
   },
-  PROFESSORS_MANAGEMENT: {
-    id: 'PROFESSORS_MANAGEMENT',
-    path: '/professors-management',
+  USERS_MANAGEMENT: {
+    id: 'USERS_MANAGEMENT',
+    path: '/users-management',
     exact: true,
     private: true,
     showNavigation: true,
     configuration: {
       order: 2,
       isDisabled: false,
-      label: 'professors_management',
+      label: 'users_management',
     },
-    Component: ProfessorsManagement,
-  },
-  STUDENTS_MANAGEMENT: {
-    id: 'STUDENTS_MANAGEMENT',
-    path: '/students-management',
-    exact: true,
-    private: true,
-    showNavigation: true,
-    configuration: {
-      order: 3,
-      isDisabled: true,
-      label: 'students_management',
-    },
-    Component: () => <div></div>, // replace with real component
+    Component: UsersManagement,
   },
   ANNOUNCEMENTS: {
     id: 'ANNOUNCEMENTS',

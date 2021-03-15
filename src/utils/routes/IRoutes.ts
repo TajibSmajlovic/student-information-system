@@ -28,8 +28,7 @@ export interface ISharedRoutes {
 
 export interface IAdminRoutes {
   COURSES_MANAGEMENT: IConfigurableRoute;
-  PROFESSORS_MANAGEMENT: IConfigurableRoute;
-  STUDENTS_MANAGEMENT: IConfigurableRoute;
+  USERS_MANAGEMENT: IConfigurableRoute;
   ANNOUNCEMENTS: IConfigurableRoute;
 }
 

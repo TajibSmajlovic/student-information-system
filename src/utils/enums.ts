@@ -11,3 +11,7 @@ export enum USER_ROLES {
   STUDENT = 'STUDENT',
   // STAFF = 'STAFF',
 }
+
+export enum TAB_TYPES {
+  DEFAULT = 'default',
+}

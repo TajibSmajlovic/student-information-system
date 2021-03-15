@@ -1,8 +1,8 @@
 import produce from 'immer';
 
-import ILanguage from 'models/ILanguage';
-import IUser from 'models/IUser';
-import ISessionState, { ISession } from 'models/ISessionState';
+import ILanguage from 'models/redux/ILanguage';
+import IUser from 'models/redux/IUser';
+import ISessionState, { ISession } from 'models/redux/ISessionState';
 import { sessionTypes, TActions } from 'store/types/sessionTypes';
 
 const INITIAL_STATE: ISession = {

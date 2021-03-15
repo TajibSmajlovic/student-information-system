@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Container, Button } from 'react-bootstrap';
 
-import IUser from 'models/IUser';
+import IUser from 'models/redux/IUser';
 import { overwriteSharedRoot, routes } from 'utils/routes/routes';
 import { setUserInfo } from 'store/actions';
 import { USER_ROLES } from 'utils/enums';

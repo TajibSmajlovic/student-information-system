@@ -1,10 +1,10 @@
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown, FormText } from 'react-bootstrap';
 
-import IUser from 'models/IUser';
+import IUser from 'models/redux/IUser';
+import { CustomToggle, Initials } from './Navigation.styles';
 import { routes } from 'utils/routes/routes';
 import { logOut } from 'store/actions';
 import { getUser } from 'store/reducers/sessionReducer';
@@ -15,12 +15,6 @@ const UsersDropdown = () => {
   const history = useHistory();
   const { t } = useTranslation(LOCALIZATION_PAGES.NAVIGATION);
   const { name, email } = useSelector(getUser) as IUser;
-
-  const getInitials = () => {
-    const fullName = name.split(' ');
-
-    return `${fullName[0][0]} ${fullName[1][0]}`;
-  };
 
   const menu = [
     {
@@ -38,6 +32,12 @@ const UsersDropdown = () => {
       },
     },
   ];
+
+  const getInitials = () => {
+    const fullName = name.split(' ');
+
+    return `${fullName[0][0]} ${fullName[1][0]}`;
+  };
 
   return (
     <Dropdown className="ml-3">
@@ -62,39 +62,5 @@ const UsersDropdown = () => {
     </Dropdown>
   );
 };
-
-const Initials = styled.div`
-  height: 42px;
-  width: 43px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--disabled);
-  color: var(--light);
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 100%;
-`;
-
-const CustomToggle = styled(Dropdown.Toggle)`
-  height: 45px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: transparent !important;
-  border: none !important;
-
-  &&:hover,
-  &&:active,
-  &&:focus {
-    background-color: transparent !important;
-    box-shadow: none !important;
-  }
-
-  &:after {
-    display: none;
-  }
-`;
 
 export default UsersDropdown;

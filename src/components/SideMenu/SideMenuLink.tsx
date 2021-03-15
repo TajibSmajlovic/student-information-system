@@ -1,7 +1,6 @@
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 
+import { SideMenuLinkWrapper as Wrapper, DisabledLink, ActiveLink, Link } from './SideMenu.styles';
 import { IConfigurableRoute } from 'utils/routes/IRoutes';
 import { LOCALIZATION_PAGES } from 'utils/constants';
 
@@ -24,44 +23,5 @@ const SideMenuLink = ({ link, isActive, onClick }: IProps) => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  font-weight: 500;
-`;
-
-const Link = styled(NavLink)`
-  cursor: pointer;
-  margin: 0.3rem 0;
-  padding: 0.2rem 0 0.2rem 0.9rem;
-  color: var(--primary);
-  font-size: 1rem;
-  line-height: 2.8;
-  letter-spacing: normal;
-  border-radius: 4px;
-  display: block;
-
-  :hover {
-    background-color: var(--primary);
-    color: var(--white);
-    text-decoration: none;
-  }
-`;
-
-const DisabledLink = styled.div`
-  padding: 0.2rem 0 0.2rem 0.9rem;
-  font-size: 1rem;
-  line-height: 2.86;
-  letter-spacing: normal;
-  color: var(--disabled);
-  margin-bottom: 4px;
-  border-radius: 4px;
-  display: block;
-  cursor: not-allowed;
-`;
-
-const ActiveLink = styled(Link)`
-  background-color: var(--primary);
-  color: var(--white);
-`;
 
 export default SideMenuLink;
