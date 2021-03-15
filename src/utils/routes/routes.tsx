@@ -193,6 +193,7 @@ const Container = styled(CustomContainer)`
 
 const Content = styled.div`
   flex: 1 1 0%;
+  padding: 1rem 0.5rem;
 `;
 
 const CenteredLoader = styled(({ ...rest }) => (

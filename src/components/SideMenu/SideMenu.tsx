@@ -23,8 +23,10 @@ const SideMenu = () => {
 };
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: calc(100vh - 80px);
   width: 270px;
+  position: sticky;
+  top: 79px;
   background-color: var(--white);
   box-shadow: rgb(0 0 0 / 25%) 1px 0px 5px -2px;
 `;
