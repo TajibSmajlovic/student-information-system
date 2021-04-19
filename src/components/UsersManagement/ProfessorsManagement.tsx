@@ -1,5 +1,5 @@
 const ProfessorsManagement = () => {
-  return <div>TODO</div>;
+  return <div>KARINAMALINA</div>;
 };
 
 export default ProfessorsManagement;
