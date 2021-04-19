@@ -13,6 +13,8 @@ import FormikField from 'components/Form/FormikField';
 import Card from 'components/Card/Card';
 import Table from 'components/Table/Table';
 import Button from 'components/Button/Button';
+import ProfessorsManagement from 'components/UsersManagement/ProfessorsManagement';
+import StudentsManagement from 'components/UsersManagement/StudentsManagement';
 
 export {
   PrivateRoute,
@@ -30,4 +32,6 @@ export {
   Card,
   Table,
   Button,
+  ProfessorsManagement,
+  StudentsManagement,
 };

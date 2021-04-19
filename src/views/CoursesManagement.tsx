@@ -40,7 +40,7 @@ const CoursesManagement = () => {
       <Table columns={columns}>
         {mockedData.data?.length &&
           mockedData.data.map((d, i) => (
-            <tr>
+            <tr key={i}>
               <th>{d.id}</th>
               <td>{d.courseName}</td>
               <td>{d.faculty}</td>
