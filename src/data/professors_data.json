@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "id": "000001",
+      "courseName": "Dzejla Medjedovic",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Professor",
+      "additionalField3": "mock data 3"
+    },
+    {
+      "id": "000002",
+      "courseName": "Emin Tahirovic",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Professor",
+      "additionalField3": "mock data 3"
+    },
+    {
+      "id": "000003",
+      "courseName": "Emine Yaman",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Professor",
+      "additionalField3": "mock data 3"
+    },
+    {
+      "id": "000004",
+      "courseName": "Sencer Yerelan",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Dean",
+      "additionalField3": "mock data 3"
+    },
+    {
+      "id": "000005",
+      "courseName": "Ozge",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Professor",
+      "additionalField3": "mock data 3"
+    }
+  ]
+}
