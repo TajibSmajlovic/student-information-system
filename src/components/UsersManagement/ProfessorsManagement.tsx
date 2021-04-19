@@ -8,7 +8,7 @@ import { Link } from 'components/Typography';
 import { LOCALIZATION_PAGES } from 'utils/constants';
 
 const ProfessorsManagement = () => {
-  const { t } = useTranslation(LOCALIZATION_PAGES.COURSES_MANAGEMENT);
+  const { t } = useTranslation(LOCALIZATION_PAGES.PROFESSORS_MANAGEMENT);
   const { t: tCommon } = useTranslation(LOCALIZATION_PAGES.COMMON);
   const columns: ITableColumn[] = [
     {
