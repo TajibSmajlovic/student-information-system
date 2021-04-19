@@ -10,8 +10,6 @@ import { getDefaultLanguage, getCurrentLanguageFromStorage } from 'utils/localiz
 
 export interface IUserContext {
   children: ReactNode;
-  isInitialized: boolean;
-  setupUser: () => void;
 }
 
 const UserContext = createContext<Partial<IUserContext>>({});
@@ -54,13 +52,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     if (user) setIsInitialized(true);
   }, [user]);
 
-  const context = useMemo(
-    () => ({
-      isInitialized,
-      setupUser,
-    }),
-    [isInitialized, setupUser]
-  );
+  const context = useMemo(() => ({}), []);
 
   if (!isInitialized) return <div>{/* TODO: put appropriate loader here */}</div>;
 

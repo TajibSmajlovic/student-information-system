@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { lazy, Suspense, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { generatePath, matchPath } from 'react-router';
-import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { Container as CustomContainer } from 'react-bootstrap';
 
 import IUser from 'models/redux/IUser';
@@ -116,12 +116,12 @@ export const overwriteSharedRoot = (user: IUser) => {
 };
 
 const Routes = () => {
-  const history = useHistory();
-  const currentRoute = matchRoute(history.location.pathname);
-  const currentUser = useSelector(getUser);
+  const location = useLocation();
+  const currentRoute = matchRoute(location.pathname);
+  const activeUser = useSelector(getUser);
 
   const availableUserRoutes = useMemo(() => {
-    switch (currentUser?.role) {
+    switch (activeUser?.role) {
       case USER_ROLES.ADMIN:
         const routes = { ...sharedRoutes, ...adminRoutes };
 
@@ -135,15 +135,15 @@ const Routes = () => {
       default:
         return Object.values(sharedRoutes);
     }
-  }, [currentUser]) as IRoute[] | IConfigurableRoute[];
+  }, [activeUser]) as IRoute[] | IConfigurableRoute[];
 
   return (
     <Suspense fallback={<CenteredLoader />}>
-      {currentUser && currentRoute?.showNavigation && <Navigation />}
+      {activeUser && currentRoute?.showNavigation && <Navigation />}
       <Container fluid className="p-0">
-        {currentUser && currentRoute?.showNavigation && <SideMenu />}
+        {activeUser && currentRoute?.showNavigation && <SideMenu />}
         <Content>
-          <Suspense fallback={!currentUser ? <CenteredLoader /> : <Loader isCentered={true} />}>
+          <Suspense fallback={!activeUser ? <CenteredLoader /> : <Loader isCentered={true} />}>
             <Switch>
               {availableUserRoutes.map((r: any, i: number) =>
                 r.private ? (

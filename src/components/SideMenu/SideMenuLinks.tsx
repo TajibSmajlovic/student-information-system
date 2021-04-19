@@ -1,9 +1,7 @@
-import { useState } from 'react';
-
 import SideMenuLink from './SideMenuLink';
 import { Title } from './SideMenu.styles';
 import { IConfigurableRoute } from 'utils/routes/IRoutes';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { matchRoute } from 'utils/routes/routes';
 
 interface IProps {
@@ -12,20 +10,14 @@ interface IProps {
 }
 
 const SideMenuLinks = ({ titleLabel, links }: IProps) => {
-  const history = useHistory();
-  const currentRoute = matchRoute(history.location.pathname) as IConfigurableRoute;
-  const [activeRoute, setActiveRoute] = useState(currentRoute);
+  const location = useLocation();
+  const currentRoute = matchRoute(location.pathname) as IConfigurableRoute;
 
   return (
     <>
       {titleLabel && <Title title={titleLabel} />}
       {links.map((link, i) => (
-        <SideMenuLink
-          key={i}
-          link={link}
-          isActive={activeRoute.id === link.id || activeRoute.path === link.path}
-          onClick={() => setActiveRoute(link)}
-        />
+        <SideMenuLink key={i} link={link} isActive={currentRoute.id === link.id || currentRoute.path === link.path} />
       ))}
     </>
   );

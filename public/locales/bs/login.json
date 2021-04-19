@@ -1,0 +1,5 @@
+{
+  "required_email": "E-mail je obavezno polje",
+  "invalid_email": "Email nije validan",
+  "required_password": "Lozinka je obavezno polje"
+}

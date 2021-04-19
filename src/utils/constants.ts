@@ -24,6 +24,7 @@ export const LANGUAGES = [
 
 export const LOCALIZATION_PAGES = {
   COMMON: 'common',
+  LOGIN: 'login',
   NAVIGATION: 'navigation',
   USERS_MANAGEMENT: 'users_management',
 };

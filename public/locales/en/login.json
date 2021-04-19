@@ -1,0 +1,5 @@
+{
+  "required_email": "E-mail is required field",
+  "invalid_email": "Invalid e-mail address",
+  "required_password": "Password is required field"
+}
