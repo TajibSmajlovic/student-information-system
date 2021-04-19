@@ -27,12 +27,12 @@ const Login = () => {
 
     const user = {
       id: 1,
-      name: 'Tajib Smajlović',
-      email: 'smajlovic.tajib@gmail.com',
+      name: 'Tarik Sidran',
+      email: 'sidrantarik@gmail.com',
       role: USER_ROLES.ADMIN,
     };
 
-    if (email === user.email && password.length > 6) {
+    if (email === user.email && password === "test123") {
       overwriteSharedRoot(user);
       dispatch(setUserInfo(user));
       showNotification('You are logged in!');

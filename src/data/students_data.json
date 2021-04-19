@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "id": "140301001",
+      "courseName": "Tarik Sidran",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Masters",
+      "additionalField3": "4.0"
+    },
+    {
+      "id": "140301002",
+      "courseName": "Tajib Smajlovic",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Masters",
+      "additionalField3": "2.0"
+    },
+    {
+      "id": "140301003",
+      "courseName": "Kemal Zvizdic",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Masters",
+      "additionalField3": "2.5"
+    },
+    {
+      "id": "140301004",
+      "courseName": "Emina Jahovic",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Masters",
+      "additionalField3": "3.2"
+    },
+    {
+      "id": "140301005",
+      "courseName": "Dzejla Ramovic",
+      "faculty": "FENS",
+      "additionalField1": "CS",
+      "additionalField2": "Masters",
+      "additionalField3": "2.8"
+    }
+  ]
+}
