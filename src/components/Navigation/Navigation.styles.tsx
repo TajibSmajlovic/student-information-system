@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Navbar, Dropdown } from 'react-bootstrap';
 
 export const Logo = styled.img`
-  height: 80px;
+  height: 70px;
+  margin-left: 1rem;
 `;
 
 export const Navigation = styled(Navbar)`

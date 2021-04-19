@@ -17,7 +17,6 @@ export const Link = ({ to, linkText, linkDescription }: IProps) => (
 );
 
 const LinkWrapper = styled.div`
-  margin-top: 1.5rem;
   color: var(--text-grey);
   font-size: 14px;
   text-align: center;
@@ -27,6 +26,7 @@ const LinkWrapper = styled.div`
 const CustomLink = styled(DefaultLink)`
   color: var(--secondary);
   font-weight: bold;
+  text-decoration: underline;
 
   &:hover {
     color: var(--secondary);

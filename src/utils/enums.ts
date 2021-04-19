@@ -15,3 +15,8 @@ export enum USER_ROLES {
 export enum TAB_TYPES {
   DEFAULT = 'default',
 }
+
+export enum SORT_ORDER {
+  ASC = 0,
+  DESC = 1,
+}

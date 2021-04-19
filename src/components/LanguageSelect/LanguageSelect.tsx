@@ -8,7 +8,7 @@ import { getLanguage } from 'store/reducers/sessionReducer';
 import { setLanguage } from 'store/actions';
 import { LANGUAGES, LOCALIZATION_PAGES } from 'utils/constants';
 
-const LanguageSelect = () => {
+const LanguageSelect = ({ align }: { align?: string }) => {
   const language = useSelector(getLanguage);
   const dispatch = useDispatch();
   const { t } = useTranslation(LOCALIZATION_PAGES.NAVIGATION);
@@ -32,6 +32,7 @@ const LanguageSelect = () => {
         items={LANGUAGES}
         onSelect={lng => dispatch(setLanguage(lng))}
         ToggleElement={Toggle}
+        align={align}
       />
     </LanguageContainer>
   );

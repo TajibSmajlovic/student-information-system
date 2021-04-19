@@ -11,6 +11,8 @@ import Tabs from 'components/Tabs/Tabs';
 import UnderConstruction from 'components/UnderConstruction/UnderConstruction';
 import FormikField from 'components/Form/FormikField';
 import Card from 'components/Card/Card';
+import Table from 'components/Table/Table';
+import Button from 'components/Button/Button';
 
 export {
   PrivateRoute,
@@ -26,4 +28,6 @@ export {
   UnderConstruction,
   FormikField,
   Card,
+  Table,
+  Button,
 };

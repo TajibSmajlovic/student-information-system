@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Formik, Form } from 'formik';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
-import { FormikField, Notification, Card } from 'components';
+import { FormikField, Notification, Card, Button, LanguageSelect } from 'components';
 import { Link } from 'components/Typography';
 import { overwriteSharedRoot, routes } from 'utils/routes/routes';
 import { useNotifications } from 'context/NotificationContext';
@@ -64,6 +64,8 @@ const Login = () => {
                     />
                   )}
                 </Col>
+                {/* add Logo here */}
+                <Col xs="12">LOGO</Col>
                 <Col xs="12">
                   <FormikField type="email" name="email" label="email" />
                 </Col>
@@ -71,16 +73,23 @@ const Login = () => {
                   <FormikField name="password" label="password" type="password" togglePassword={true} />
                 </Col>
                 <Col xs="12" className="mt-3">
-                  <Button block type="submit" disabled={!values.email || !values.password}>
-                    {t('login')}
-                  </Button>
+                  <Button block type="submit" text={t('login')} disabled={!values.email || !values.password} />
                 </Col>
               </Row>
             </Form>
           )}
         </Formik>
 
-        <Link to="/reset-password" linkDescription="Can't remember your password?" linkText="Reset Password" />
+        <div className="mt-3">
+          {/* Add translation */}
+          <Link to="/reset-password" linkDescription="Can't remember your password?" linkText="Reset Password" />
+        </div>
+
+        <hr />
+
+        <div className="d-flex align-items-center justify-content-center">
+          <LanguageSelect align="left" />
+        </div>
       </Card>
     </Wrapper>
   );

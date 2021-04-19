@@ -27,4 +27,5 @@ export const LOCALIZATION_PAGES = {
   LOGIN: 'login',
   NAVIGATION: 'navigation',
   USERS_MANAGEMENT: 'users_management',
+  COURSES_MANAGEMENT: 'courses_management',
 };
