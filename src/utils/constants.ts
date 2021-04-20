@@ -29,5 +29,5 @@ export const LOCALIZATION_PAGES = {
   USERS_MANAGEMENT: 'users_management',
   COURSES_MANAGEMENT: 'courses_management',
   PROFESSORS_MANAGEMENT: 'professors_management',
-  STUDENTS_MANAGEMENT: 'students_management'
+  STUDENTS_MANAGEMENT: 'students_management',
 };
