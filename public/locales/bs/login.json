@@ -1,5 +1,7 @@
 {
   "required_email": "E-mail je obavezno polje",
   "invalid_email": "Email nije validan",
-  "required_password": "Lozinka je obavezno polje"
+  "required_password": "Lozinka je obavezno polje",
+  "forgot_password_link_description": "Ne sjećaš se lozinke?",
+  "forgot_password_link_text": "Resetuj lozinku"
 }

@@ -1,5 +1,7 @@
 {
   "required_email": "E-mail is required field",
   "invalid_email": "Invalid e-mail address",
-  "required_password": "Password is required field"
+  "required_password": "Password is required field",
+  "forgot_password_link_description": "Can't remember your password?",
+  "forgot_password_link_text": "Reset Password"
 }

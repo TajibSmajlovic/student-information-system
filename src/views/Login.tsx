@@ -16,7 +16,8 @@ import { LOCALIZATION_PAGES } from 'utils/constants';
 import { LOGIN_SCHEMA } from 'utils/validation';
 
 const Login = () => {
-  const { t } = useTranslation([LOCALIZATION_PAGES.COMMON, LOCALIZATION_PAGES.LOGIN]);
+  const { t } = useTranslation(LOCALIZATION_PAGES.LOGIN);
+  const { t: tCommon } = useTranslation(LOCALIZATION_PAGES.COMMON);
   const { showNotification } = useNotifications();
   const [errorMessage, setErrorMessage] = useState<string>('');
   const dispatch = useDispatch();
@@ -27,12 +28,12 @@ const Login = () => {
 
     const user = {
       id: 1,
-      name: 'Tarik Sidran',
-      email: 'sidrantarik@gmail.com',
+      name: 'user',
+      email: 'user@mail.com',
       role: USER_ROLES.ADMIN,
     };
 
-    if (email === user.email && password === "test123") {
+    if (email === user.email && password === 'pass123') {
       overwriteSharedRoot(user);
       dispatch(setUserInfo(user));
       showNotification('You are logged in!');
@@ -54,18 +55,19 @@ const Login = () => {
           {({ values }) => (
             <Form>
               <Row>
-                <Col xs="12">
-                  {errorMessage && (
+                {errorMessage && (
+                  <Col xs="12">
                     <Notification
                       variant={ALERT_VARIANTS.DANGER}
                       message={errorMessage}
                       dismissible={true}
                       onClose={() => setErrorMessage('')}
                     />
-                  )}
+                  </Col>
+                )}
+                <Col xs="12" className="d-flex align-items-center justify-content-center mb-4">
+                  <img className="w-50" src={`${process.env.PUBLIC_URL}/assets/images/ius_logo.png`} alt="ius_logo" />
                 </Col>
-                {/* add Logo here */}
-                <Col xs="12">LOGO</Col>
                 <Col xs="12">
                   <FormikField type="email" name="email" label="email" />
                 </Col>
@@ -73,7 +75,7 @@ const Login = () => {
                   <FormikField name="password" label="password" type="password" togglePassword={true} />
                 </Col>
                 <Col xs="12" className="mt-3">
-                  <Button block type="submit" text={t('login')} disabled={!values.email || !values.password} />
+                  <Button block type="submit" text={tCommon('login')} disabled={!values.email || !values.password} />
                 </Col>
               </Row>
             </Form>
@@ -81,8 +83,11 @@ const Login = () => {
         </Formik>
 
         <div className="mt-3">
-          {/* Add translation */}
-          <Link to="/reset-password" linkDescription="Can't remember your password?" linkText="Reset Password" />
+          <Link
+            to="/reset-password"
+            linkDescription={t('forgot_password_link_description')}
+            linkText={t('forgot_password_link_text')}
+          />
         </div>
 
         <hr />

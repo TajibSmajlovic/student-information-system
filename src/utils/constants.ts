@@ -1,4 +1,3 @@
-import { ProfessorsManagement } from 'components';
 export const TOKEN_KEY = 'AUTH-TOKEN';
 export const LANG_KEY = 'CURRENT_LANGUAGE';
 export const NOTIFICATION_DISMISS_TIMEOUT = 5000;
@@ -30,5 +29,5 @@ export const LOCALIZATION_PAGES = {
   USERS_MANAGEMENT: 'users_management',
   COURSES_MANAGEMENT: 'courses_management',
   PROFESSORS_MANAGEMENT: 'professors_management',
-  STUDENTS_MANAGEMENT: 'students_management'
+  STUDENTS_MANAGEMENT: 'students_management',
 };
