@@ -1,4 +1,3 @@
-import { ProfessorsManagement } from 'components';
 export const TOKEN_KEY = 'AUTH-TOKEN';
 export const LANG_KEY = 'CURRENT_LANGUAGE';
 export const NOTIFICATION_DISMISS_TIMEOUT = 5000;

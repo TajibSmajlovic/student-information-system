@@ -1,46 +1,27 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Formik, Form } from 'formik';
 import { Row, Col } from 'react-bootstrap';
 
 import { FormikField, Notification, Card, Button, LanguageSelect } from 'components';
-import { Link } from 'components/Typography';
-import { overwriteSharedRoot, routes } from 'utils/routes/routes';
-import { useNotifications } from 'context/NotificationContext';
-import { setUserInfo } from 'store/actions';
-import { USER_ROLES, ALERT_VARIANTS } from 'utils/enums';
+import { Title } from 'components/Typography';
+import { ALERT_VARIANTS } from 'utils/enums';
 import { LOCALIZATION_PAGES } from 'utils/constants';
 import { LOGIN_SCHEMA } from 'utils/validation';
 
 const Login = () => {
   const { t } = useTranslation([LOCALIZATION_PAGES.COMMON, LOCALIZATION_PAGES.LOGIN]);
-  const { showNotification } = useNotifications();
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const dispatch = useDispatch();
   const history = useHistory();
 
-  const onSubmit = async ({ email, password }: { email: string; password: string }) => {
+  const onBack = () => {
+    history.push("/login")
+  }
+
+  const onSubmit = async ({ email}: { email: string}) => {
     // mimic an API call
-
-
-    const user = {
-      id: 1,
-      name: 'Tarik Sidran',
-      email: 'sidrantarik@gmail.com',
-      role: USER_ROLES.ADMIN,
-    };
-
-    if (email === user.email && password === "test123") {
-      overwriteSharedRoot(user);
-      dispatch(setUserInfo(user));
-      showNotification('You are logged in!');
-      history.push(routes.ROOT.path);
-    } else {
-      setErrorMessage('Error message todo');
-    }
   };
 
   return (
@@ -48,7 +29,7 @@ const Login = () => {
       <Card>
         <Formik
           enableReinitialize
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: ''}}
           validationSchema={LOGIN_SCHEMA}
           onSubmit={onSubmit}
         >
@@ -66,26 +47,20 @@ const Login = () => {
                   )}
                 </Col>
                 {/* add Logo here */}
-                <Col xs="12">LOGO</Col>
+                <Col xs="12"> <Title>Reset password</Title> </Col>
                 <Col xs="12">
-                  <FormikField type="email" name="email" label="" placeholder="Email address"/>
+                  <FormikField type="email" name="email" label="" placeholder="Email address" />
                 </Col>
-                <Col xs="12">
-                  <FormikField name="password" label="" type="password" placeholder="Password" togglePassword={true} />
+                <Col xs="6" className="mt-3">
+                  <Button block variant="secondary" onClick={onBack}  text={t('Cancel')} />
                 </Col>
-                <Col xs="12" className="mt-3">
-                  <Button block type="submit" text={t('login')} disabled={!values.email || !values.password} />
+                <Col xs="6" className="mt-3">
+                  <Button block type="submit" text={t('Continue')} disabled={!values.email} />
                 </Col>
               </Row>
             </Form>
           )}
         </Formik>
-
-        <div className="mt-3">
-          {/* Add translation */}
-          <Link to="/reset-password" linkText="Lost my password?" />
-          <Link to="/reset-password" linkText="Generate first time password?" />
-        </div>
 
         <hr />
 

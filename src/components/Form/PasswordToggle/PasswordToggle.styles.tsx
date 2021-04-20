@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 export const ToggleIconWrapper = styled.span`
   position: absolute;
   right: 1rem;
-  top: 33px;
+  top: 11px;
   z-index: 10;
   cursor: pointer;
 `;

@@ -1,8 +1,8 @@
 {
-  "professor id": "ID profesora",
-  "professor name": "ime profesora",
-  "faculty": "Fakultet",
-  "department": "Odsijek",
-  "title": "Titula",
-  "classes": "Predmeti"
+  "professor id": "professor id",
+  "professor name": "professors name",
+  "faculty": "faculty",
+  "department": "department",
+  "title": "title",
+  "classes": "classes"
 }

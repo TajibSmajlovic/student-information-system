@@ -14,6 +14,8 @@ import { USER_ROLES } from 'utils/enums';
 const Login = lazy(() => import('views/Login'));
 const CoursesManagement = lazy(() => import('views/CoursesManagement'));
 const UsersManagement = lazy(() => import('views/UsersManagement'));
+const ResetPassword = lazy(() => import('views/ResetPassword'));
+
 
 const sharedRoutes: ISharedRoutes = {
   LOGIN: {
@@ -33,6 +35,14 @@ const sharedRoutes: ISharedRoutes = {
     showNavigation: true,
     Component: () => <></>,
   },
+  RESET_PASSWORD: {
+    id: 'RESET_PASSWORD',
+    path: '/reset-password',
+    exact: true,
+    private: false,
+    showNavigation: false,
+    Component: ResetPassword,
+  }
 };
 
 const adminRoutes: IAdminRoutes = {
