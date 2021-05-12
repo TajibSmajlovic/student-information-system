@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.p`
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

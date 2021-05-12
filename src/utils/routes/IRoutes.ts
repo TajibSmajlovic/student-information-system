@@ -25,6 +25,7 @@ export interface ISharedRoutes {
   LOGIN: IRoute;
   ROOT: IRoute;
   RESET_PASSWORD: IRoute;
+  GENERATE_PASSWORD: IRoute;
 }
 
 export interface IAdminRoutes {

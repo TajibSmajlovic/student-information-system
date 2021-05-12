@@ -28,18 +28,20 @@ const Login = () => {
 
     const user = {
       id: 1,
-      name: 'user',
-      email: 'user@mail.com',
+      name: 'tarik sidran',
+      email: 'sidrantarik@gmail.com',
       role: USER_ROLES.ADMIN,
     };
 
-    if (email === user.email && password === 'pass123') {
+    if (email === user.email && password === 'test123') {
       overwriteSharedRoot(user);
       dispatch(setUserInfo(user));
       showNotification('You are logged in!');
       history.push(routes.ROOT.path);
+    } else if (email === user.email && password !== 'test123'){
+      setErrorMessage('Wrong password');
     } else {
-      setErrorMessage('Error message todo');
+      setErrorMessage('Account does not exist');
     }
   };
 
@@ -85,7 +87,7 @@ const Login = () => {
         <div className="mt-3">
           {/* Add translation */}
           <Link to="/reset-password" linkText="Lost my password?" />
-          <Link to="/reset-password" linkText="Generate first time password?" />
+          <Link to="/generate-password" linkText="Generate first time password?" />
         </div>
 
         <hr />

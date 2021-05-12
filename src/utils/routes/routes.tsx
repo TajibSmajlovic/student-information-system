@@ -15,7 +15,7 @@ const Login = lazy(() => import('views/Login'));
 const CoursesManagement = lazy(() => import('views/CoursesManagement'));
 const UsersManagement = lazy(() => import('views/UsersManagement'));
 const ResetPassword = lazy(() => import('views/ResetPassword'));
-
+const GeneratePassword = lazy(() => import('views/GeneratePassword'))
 
 const sharedRoutes: ISharedRoutes = {
   LOGIN: {
@@ -42,6 +42,14 @@ const sharedRoutes: ISharedRoutes = {
     private: false,
     showNavigation: false,
     Component: ResetPassword,
+  },
+  GENERATE_PASSWORD: {
+    id: 'GENERATE_PASSWORD',
+    path: '/generate-password',
+    exact: true,
+    private: false,
+    showNavigation: false,
+    Component: GeneratePassword,
   }
 };
 

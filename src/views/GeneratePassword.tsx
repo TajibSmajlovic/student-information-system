@@ -9,8 +9,7 @@ import { FormikField, Notification, Card, Button, LanguageSelect } from 'compone
 import { ALERT_VARIANTS } from 'utils/enums';
 import { LOCALIZATION_PAGES } from 'utils/constants';
 import { RESET_PASSWORD_SCHEMA } from 'utils/validation';
-import emailjs, { send } from "emailjs-com";
-
+import { Title } from 'components/Typography';
 
 const ResetPassword = () => {
   const { t } = useTranslation([LOCALIZATION_PAGES.COMMON, LOCALIZATION_PAGES.LOGIN]);
@@ -22,13 +21,7 @@ const ResetPassword = () => {
   }
 
   const onSubmit = async ({ email}: { email: string}) => {
-    
-    emailjs.sendForm('gmail', 'template_xofkh7f', email, 'user_AmZPgV98zVApxmBqu8NxC')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
+    console.log(email)
   };
 
   return (
@@ -57,13 +50,22 @@ const ResetPassword = () => {
                   <img className="w-50" src={`${process.env.PUBLIC_URL}/assets/images/ius_logo.png`} alt="ius_logo" />
                 </Col>
                 <Col xs="12">
-                  <FormikField type="email" name="email" label="" placeholder="Email address" />
+                  <FormikField type="email" name="email" label="" placeholder="T.R. Identity / Passport No" />
+                </Col>
+                <Col xs="12">
+                  <FormikField type="email" name="father's name" label="" placeholder="Father's name" />
+                </Col>
+                <Col xs="12">
+                  <Title> Date of birth </Title>
+                </Col>
+                <Col xs="12">
+                  <FormikField type="date" name="day" label="" placeholder="" />
                 </Col>
                 <Col xs="6" className="mt-3">
                   <Button block variant="secondary" onClick={onBack}  text={t('Cancel')} />
                 </Col>
                 <Col xs="6" className="mt-3">
-                  <Button block type="submit" text={t('Reset')} disabled={!values.email} />
+                  <Button block type="submit" text={t('Generate')} disabled={!values.email} />
                 </Col>
               </Row>
             </Form>
