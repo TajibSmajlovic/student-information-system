@@ -9,9 +9,21 @@ interface IProps {
   [x: string]: any;
 }
 
-const Button = ({ text, variant = 'primary', isDisabled = false, isLoading = false, ...rest }: IProps) => (
-  <CustomButton variant={variant} disabled={isDisabled || isLoading} {...rest}>
-    {isLoading ? <Spinner animation="border" size="sm" /> : text}
+const Button = ({
+  text,
+  variant = 'primary',
+  isDisabled = false,
+  isLoading = false,
+  children,
+  ...rest
+}: IProps | any) => (
+  <CustomButton
+    className="d-flex justify-content-center align-items-center"
+    variant={variant}
+    disabled={isDisabled || isLoading}
+    {...rest}
+  >
+    {children} {isLoading ? <Spinner animation="border" size="sm" /> : <span>{text}</span>}
   </CustomButton>
 );
 

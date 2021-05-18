@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FormControl } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
@@ -18,6 +18,13 @@ export const InputComponent = styled(FormControl)`
     -webkit-appearance: none;
     margin: 0;
   }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: transparent !important;
+      font-weight: bold;
+      border: none;
+    `}
   /* Firefox */
   &[type='number'] {
     -moz-appearance: textfield;

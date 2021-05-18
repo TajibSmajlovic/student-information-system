@@ -17,11 +17,11 @@ const ResetPassword = () => {
   const history = useHistory();
 
   const onBack = () => {
-    history.push("/login")
-  }
+    history.push('/login');
+  };
 
-  const onSubmit = async ({ email}: { email: string}) => {
-    console.log(email)
+  const onSubmit = async ({ email }: { email: string }) => {
+    console.log(email);
   };
 
   return (
@@ -29,7 +29,7 @@ const ResetPassword = () => {
       <Card>
         <Formik
           enableReinitialize
-          initialValues={{ email: ''}}
+          initialValues={{ email: '' }}
           validationSchema={RESET_PASSWORD_SCHEMA}
           onSubmit={onSubmit}
         >
@@ -49,6 +49,11 @@ const ResetPassword = () => {
                 <Col xs="12" className="d-flex align-items-center justify-content-center mb-4">
                   <img className="w-50" src={`${process.env.PUBLIC_URL}/assets/images/ius_logo.png`} alt="ius_logo" />
                 </Col>
+
+                <Col>
+                  <Title style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: 25 }}>Generate Password</Title>
+                </Col>
+
                 <Col xs="12">
                   <FormikField type="email" name="email" label="" placeholder="T.R. Identity / Passport No" />
                 </Col>
@@ -62,7 +67,7 @@ const ResetPassword = () => {
                   <FormikField type="date" name="day" label="" placeholder="" />
                 </Col>
                 <Col xs="6" className="mt-3">
-                  <Button block variant="secondary" onClick={onBack}  text={t('Cancel')} />
+                  <Button block variant="secondary" onClick={onBack} text={t('Cancel')} />
                 </Col>
                 <Col xs="6" className="mt-3">
                   <Button block type="submit" text={t('Generate')} disabled={!values.email} />

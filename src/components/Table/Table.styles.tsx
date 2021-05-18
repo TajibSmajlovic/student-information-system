@@ -32,12 +32,8 @@ export const TableWrapper = styled(Table)`
 
   & td:last-child,
   th:last-child {
-    text-align: center;
     padding-right: 2.5rem;
-  }
-
-  & th:last-child div {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   th {

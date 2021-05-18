@@ -1,11 +1,12 @@
 import SideMenuLinks from './SideMenuLinks';
 import { SideMenuWrapper as Wrapper, Menu, Footer } from './SideMenu.styles';
-import { routes } from 'utils/routes/routes';
+import { useAvailableUserRoutes } from 'utils/routes/routes';
 import { IConfigurableRoute } from 'utils/routes/IRoutes';
 
 const SideMenu = () => {
-  const menuLinks = Object.values(routes)
-    .filter(r => r.configuration)
+  const availableUserRoutes = useAvailableUserRoutes();
+  const menuLinks = Object.values(availableUserRoutes as IConfigurableRoute[])
+    .filter(r => r.configuration && r.isVisible)
     .sort((a: IConfigurableRoute, b: IConfigurableRoute) => a.configuration.order - b.configuration.order)
     .map((r: IConfigurableRoute) => r);
 

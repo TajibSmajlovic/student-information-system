@@ -3,13 +3,12 @@ import { Container } from 'react-bootstrap';
 
 import mockedData from 'data/courses_data.json';
 import ITableColumn from 'models/ITableColumn';
-import { Table } from 'components';
-import { Link } from 'components/Typography';
+import { Table, ListHeader, LinkButton, TableActionsToggle, Pagination } from 'components';
 import { LOCALIZATION_PAGES } from 'utils/constants';
+import ITableActionToggle from 'models/ITableActionToggle';
 
 const CoursesManagement = () => {
   const { t } = useTranslation(LOCALIZATION_PAGES.COURSES_MANAGEMENT);
-  const { t: tCommon } = useTranslation(LOCALIZATION_PAGES.COMMON);
   const columns: ITableColumn[] = [
     {
       name: t('course_id'),
@@ -21,22 +20,30 @@ const CoursesManagement = () => {
     },
     { name: t('faculty'), sortable: true },
     {
-      name: t('additional_field'),
+      name: t('Type'),
+      sortable: true,
+    },
+    {
+      name: t('Students NO.'),
       sortable: true,
     },
     {
       name: t('additional_field'),
       sortable: true,
     },
-    {
-      name: t('additional_field'),
-      sortable: true,
-    },
-    { name: tCommon('actions') },
+    { name: 'Actions' },
+  ];
+
+  const tableActions: ITableActionToggle[] = [
+    { value: 'Edit', onClick: () => {} },
+    { value: 'Delete', onClick: () => {} },
   ];
 
   return (
     <Container fluid>
+      <ListHeader onSearch={() => {}}>
+        <LinkButton to={`courses/add`} text="Add Course" />
+      </ListHeader>
       <Table columns={columns}>
         {mockedData.data?.length &&
           mockedData.data.map((d, i) => (
@@ -44,15 +51,16 @@ const CoursesManagement = () => {
               <th>{d.id}</th>
               <td>{d.courseName}</td>
               <td>{d.faculty}</td>
-              <td>{d.additionalField1}</td>
-              <td>{d.additionalField2}</td>
+              <td>{d.type}</td>
+              <td>{d.studentsNumber}</td>
               <td>{d.additionalField3}</td>
               <td>
-                <Link to={`courses-management/${d.id}`} linkText={t('edit')} />
+                <TableActionsToggle items={tableActions} />
               </td>
             </tr>
           ))}
       </Table>
+      <Pagination maxPages={2} page={2} count={25} />
     </Container>
   );
 };

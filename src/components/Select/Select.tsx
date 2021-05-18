@@ -13,7 +13,7 @@ interface IProps<T> {
 
 const Select = <T,>({ activeItem, items, variant = 'light', align = 'right', onSelect, ToggleElement }: IProps<T>) => (
   <Dropdown>
-    {ToggleElement ? <ToggleElement /> : <Dropdown.Toggle variant={variant}>{activeItem.name}</Dropdown.Toggle>}
+    {ToggleElement ? <ToggleElement /> : <Dropdown.Toggle variant={variant}>{activeItem?.name}</Dropdown.Toggle>}
     <CustomDropdownMenu align={align}>
       {items.map((item: any) => (
         <DropdownItemBox

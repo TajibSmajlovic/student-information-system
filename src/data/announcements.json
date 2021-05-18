@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "id": "12001",
+      "title": "Midterm Exam Schedule",
+      "date": "March 22",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    },
+    {
+      "id": "11999",
+      "title": "Master Thesis Defence - Student 1",
+      "date": "March 19",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    },
+    {
+      "id": "11998",
+      "title": "Master Thesis Defence - Student 2",
+      "date": "March 18",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    },
+    {
+      "id": "11997",
+      "title": "Mocked Announcements 1",
+      "date": "March 17",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    },
+    {
+      "id": "11996",
+      "title": "Mocked Announcements 2",
+      "date": "March 16",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    },
+    {
+      "id": "11995",
+      "title": "Mocked Announcements 3",
+      "date": "March 15",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    },
+    {
+      "id": "11994",
+      "title": "Mocked Announcements 4",
+      "date": "March 14",
+      "additionalField": "Mocked data",
+      "additionalField2": "Mocked data"
+    }
+  ]
+}

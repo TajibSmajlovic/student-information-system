@@ -4,40 +4,40 @@
       "id": "11100",
       "courseName": "Algorithms and Data Structures",
       "faculty": "FENS",
-      "additionalField1": "mock data 1",
-      "additionalField2": "mock data 2",
+      "type": "Graduate course",
+      "studentsNumber": "5",
       "additionalField3": "mock data 3"
     },
     {
       "id": "11101",
       "courseName": "Algorithms and Data Structures 2",
       "faculty": "FENS",
-      "additionalField1": "mock data 1",
-      "additionalField2": "mock data 2",
+      "type": "Graduate course",
+      "studentsNumber": "7",
       "additionalField3": "mock data 3"
     },
     {
       "id": "11102",
       "courseName": "Algorithms and Data Structures 3",
       "faculty": "FENS",
-      "additionalField1": "mock data 1",
-      "additionalField2": "mock data 2",
+      "type": "Undergraduate course",
+      "studentsNumber": "15",
       "additionalField3": "mock data 3"
     },
     {
       "id": "11103",
       "courseName": "Algorithms and Data Structures 4",
       "faculty": "FENS",
-      "additionalField1": "mock data 1",
-      "additionalField2": "mock data 2",
+      "type": "Undergraduate course",
+      "studentsNumber": "26",
       "additionalField3": "mock data 3"
     },
     {
       "id": "11104",
       "courseName": "Algorithms and Data Structures 5",
       "faculty": "FENS",
-      "additionalField1": "mock data 1",
-      "additionalField2": "mock data 2",
+      "type": "Undergraduate course",
+      "studentsNumber": "19",
       "additionalField3": "mock data 3"
     }
   ]

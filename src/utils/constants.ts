@@ -1,7 +1,8 @@
 export const TOKEN_KEY = 'AUTH-TOKEN';
 export const LANG_KEY = 'CURRENT_LANGUAGE';
 export const NOTIFICATION_DISMISS_TIMEOUT = 5000;
-
+export const DEBOUNCE_TIMEOUT = 500;
+export const DEFAULT_PAGE_SIZE = 10;
 export const LANGUAGES = [
   {
     id: 1,

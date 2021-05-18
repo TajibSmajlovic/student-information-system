@@ -3,9 +3,9 @@ import { Container } from 'react-bootstrap';
 
 import mockedData from 'data/professors_data.json';
 import ITableColumn from 'models/ITableColumn';
-import { Table } from 'components';
-import { Link } from 'components/Typography';
+import { Table, ListHeader, LinkButton, Pagination, TableActionsToggle } from 'components';
 import { LOCALIZATION_PAGES } from 'utils/constants';
+import ITableActionToggle from 'models/ITableActionToggle';
 
 const ProfessorsManagement = () => {
   const { t } = useTranslation(LOCALIZATION_PAGES.PROFESSORS_MANAGEMENT);
@@ -35,8 +35,16 @@ const ProfessorsManagement = () => {
     { name: tCommon('actions') },
   ];
 
+  const tableActions: ITableActionToggle[] = [
+    { value: 'Edit', onClick: () => {} },
+    { value: 'Delete', onClick: () => {} },
+  ];
+
   return (
     <Container fluid>
+      <ListHeader onSearch={() => {}}>
+        <LinkButton to={`professors/add`} text="Add Professor" />
+      </ListHeader>
       <Table columns={columns}>
         {mockedData.data?.length &&
           mockedData.data.map((d, i) => (
@@ -48,11 +56,12 @@ const ProfessorsManagement = () => {
               <td>{d.additionalField2}</td>
               <td>{d.additionalField3}</td>
               <td>
-                <Link to={`courses-management/${d.id}`} linkText={t('edit')} />
+                <TableActionsToggle items={tableActions} />
               </td>
             </tr>
           ))}
       </Table>
+      <Pagination maxPages={3} page={3} count={25} />
     </Container>
   );
 };

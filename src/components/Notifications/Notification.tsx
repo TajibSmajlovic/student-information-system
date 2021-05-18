@@ -20,7 +20,7 @@ const Notification = ({ message, variant, onClose, dismissible = false }: INotif
   };
 
   return show ? (
-    <Alert variant={variant} dismissible={dismissible} onClose={handleClose}>
+    <Alert variant={variant} dismissible={dismissible} onClose={handleClose} style={{ zIndex: 999999 }}>
       {message}
     </Alert>
   ) : null;

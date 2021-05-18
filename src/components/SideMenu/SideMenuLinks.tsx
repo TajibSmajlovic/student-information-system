@@ -17,7 +17,15 @@ const SideMenuLinks = ({ titleLabel, links }: IProps) => {
     <>
       {titleLabel && <Title title={titleLabel} />}
       {links.map((link, i) => (
-        <SideMenuLink key={i} link={link} isActive={currentRoute.id === link.id || currentRoute.path === link.path} />
+        <SideMenuLink
+          key={i}
+          link={link}
+          isActive={
+            currentRoute.id === link.id ||
+            currentRoute.path === link.path ||
+            currentRoute?.configuration?.label === link?.configuration?.label
+          }
+        />
       ))}
     </>
   );

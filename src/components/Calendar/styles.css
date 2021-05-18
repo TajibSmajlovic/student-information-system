@@ -1,0 +1,18 @@
+.fc-today-button,
+.fc-button,
+.fc-button-primary {
+  background-color: var(--primary) !important;
+  border: none !important;
+}
+
+.fc-toolbar-title {
+  font-size: 2.5rem !important;
+  font-weight: bold;
+  color: var(--primary) !important;
+  text-align: center;
+}
+
+.fc-daygrid-day-frame,
+.fc-scrollgrid-sync-inner {
+  background-color: var(--white) !important;
+}

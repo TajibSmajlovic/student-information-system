@@ -5,7 +5,7 @@ import { Navigation, Logo } from './Navigation.styles';
 import { LanguageSelect } from 'components';
 
 const Header = () => (
-  <Navigation>
+  <Navigation style={{ zIndex: 1000 }}>
     <Logo src={`${process.env.PUBLIC_URL}/assets/images/ius_logo.png`} alt="ius_logo" />
     <Nav className="mr-auto" />
     <LanguageSelect />

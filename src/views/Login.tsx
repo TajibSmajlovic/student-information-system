@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,13 @@ import { USER_ROLES, ALERT_VARIANTS } from 'utils/enums';
 import { LOCALIZATION_PAGES } from 'utils/constants';
 import { LOGIN_SCHEMA } from 'utils/validation';
 
+const user = {
+  id: 1,
+  name: 'tarik sidran',
+  email: 'sidrantarik@gmail.com',
+  role: USER_ROLES.ADMIN,
+};
+
 const Login = () => {
   const { t: tCommon } = useTranslation(LOCALIZATION_PAGES.COMMON);
   const { showNotification } = useNotifications();
@@ -22,23 +29,49 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  /*
+  useEffect(() => {
+    overwriteSharedRoot(user);
+    dispatch(setUserInfo(user));
+    showNotification('You are logged in!');
+    history.push(routes.ROOT.path);
+  }, [dispatch, history, showNotification]);
+*/
+
   const onSubmit = async ({ email, password }: { email: string; password: string }) => {
     // mimic an API call
-
-
     const user = {
       id: 1,
-      name: 'tarik sidran',
-      email: 'sidrantarik@gmail.com',
-      role: USER_ROLES.ADMIN,
+      name: 'Tarik Sidran',
+      email: '',
+      role: USER_ROLES.STUDENT,
     };
 
-    if (email === user.email && password === 'test123') {
+    if (email === 'admin@mail.com' && password === 'test123') {
+      user.email = 'admin@mail.com';
+      user.role = USER_ROLES.ADMIN;
+
       overwriteSharedRoot(user);
       dispatch(setUserInfo(user));
       showNotification('You are logged in!');
       history.push(routes.ROOT.path);
-    } else if (email === user.email && password !== 'test123'){
+    } else if (email === 'professor@mail.com' && password === 'test123') {
+      user.email = 'professor@mail.com';
+      user.role = USER_ROLES.PROFESSOR;
+
+      overwriteSharedRoot(user);
+      dispatch(setUserInfo(user));
+      showNotification('You are logged in!');
+      history.push(routes.ROOT.path);
+    } else if (email === 'student@mail.com' && password === 'test123') {
+      user.email = 'student@mail.com';
+      user.role = USER_ROLES.STUDENT;
+
+      overwriteSharedRoot(user);
+      dispatch(setUserInfo(user));
+      showNotification('You are logged in!');
+      history.push(routes.ROOT.path);
+    } else if (email === user.email && password !== 'test123') {
       setErrorMessage('Wrong password');
     } else {
       setErrorMessage('Account does not exist');
@@ -71,7 +104,7 @@ const Login = () => {
                   <img className="w-50" src={`${process.env.PUBLIC_URL}/assets/images/ius_logo.png`} alt="ius_logo" />
                 </Col>
                 <Col xs="12">
-                  <FormikField type="email" name="email" label="" placeholder="Email address"/>
+                  <FormikField type="email" name="email" label="" placeholder="Email address" />
                 </Col>
                 <Col xs="12">
                   <FormikField name="password" label="" type="password" placeholder="Password" togglePassword={true} />

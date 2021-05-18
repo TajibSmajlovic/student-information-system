@@ -20,7 +20,7 @@ const UsersDropdown = () => {
     {
       iconPath: `${process.env.PUBLIC_URL}/assets/icons/list-outline.svg`,
       label: t('my_profile'),
-      onClick: () => {},
+      onClick: () => history.push(routes.MY_PROFILE.path),
     },
     {
       iconPath: `${process.env.PUBLIC_URL}/assets/icons/log-out-outline.svg`,

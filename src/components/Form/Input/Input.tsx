@@ -6,9 +6,10 @@ import { Wrapper, InputComponent } from './Input.styles';
 import { Label } from 'components/Typography';
 
 interface IProps {
-  type: string;
+  type?: string;
   label?: string;
-  value: any;
+  value?: any;
+
   validationMessage?: string;
   togglePassword?: boolean;
   isDisabled?: boolean;

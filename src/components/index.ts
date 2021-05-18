@@ -15,6 +15,18 @@ import Table from 'components/Table/Table';
 import Button from 'components/Button/Button';
 import ProfessorsManagement from 'components/UsersManagement/ProfessorsManagement';
 import StudentsManagement from 'components/UsersManagement/StudentsManagement';
+import FilterInput from 'components/FilterInput/FilterInput';
+import ListHeader from 'components/Layout/ListHeader';
+import LinkButton from 'components/Button/LinkButton';
+import Calendar from 'components/Calendar/Calendar';
+import Modal from 'components/Modal/Modal';
+import TableActionsToggle from 'components/Table/TableActionsToggle';
+import Pagination from 'components/Pagination/Pagination';
+import Grades from 'components/CourseDetails/Grades';
+import Attendance from 'components/CourseDetails/Attendance';
+import CourseDetails from 'components/CourseDetails/Details';
+import Text from 'components/Typography/Text';
+import { Label } from 'components/Typography/Label';
 
 export {
   PrivateRoute,
@@ -34,4 +46,16 @@ export {
   Button,
   ProfessorsManagement,
   StudentsManagement,
+  FilterInput,
+  ListHeader,
+  LinkButton,
+  Calendar,
+  Modal,
+  TableActionsToggle,
+  Pagination,
+  Grades,
+  Attendance,
+  CourseDetails,
+  Text,
+  Label,
 };

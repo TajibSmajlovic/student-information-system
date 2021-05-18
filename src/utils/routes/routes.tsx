@@ -6,8 +6,17 @@ import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { Container as CustomContainer } from 'react-bootstrap';
 
 import IUser from 'models/redux/IUser';
-import { PrivateRoute, SideMenu, Navigation, Loader } from 'components';
-import { IRoute, IParam, IRoutes, ISharedRoutes, IAdminRoutes, IConfigurableRoute } from 'utils/routes/IRoutes';
+import { PrivateRoute, SideMenu, Navigation, Loader, CourseDetails as Details } from 'components';
+import {
+  IRoute,
+  IParam,
+  IRoutes,
+  ISharedRoutes,
+  IAdminRoutes,
+  IConfigurableRoute,
+  IProfessorRoutes,
+  IStudentRoutes,
+} from 'utils/routes/IRoutes';
 import { getUser } from 'store/reducers/sessionReducer';
 import { USER_ROLES } from 'utils/enums';
 
@@ -15,7 +24,19 @@ const Login = lazy(() => import('views/Login'));
 const CoursesManagement = lazy(() => import('views/CoursesManagement'));
 const UsersManagement = lazy(() => import('views/UsersManagement'));
 const ResetPassword = lazy(() => import('views/ResetPassword'));
-const GeneratePassword = lazy(() => import('views/GeneratePassword'))
+const GeneratePassword = lazy(() => import('views/GeneratePassword'));
+const Announcements = lazy(() => import('views/Announcements'));
+const AcademicCalendar = lazy(() => import('views/AcademicCalendar'));
+const ProfessorsHome = lazy(() => import('views/ProfessorsHome'));
+const ProfessorsCalendar = lazy(() => import('views/ProfessorsCalendar'));
+const MyCourses = lazy(() => import('views/MyCourses'));
+const CourseDetails = lazy(() => import('views/CourseDetails'));
+const OfferedCourses = lazy(() => import('views/OfferedCourses'));
+const OfferedCoursesPreview = lazy(() => import('views/OfferedCoursePreview'));
+const StudentsHome = lazy(() => import('views/StudentsHome'));
+const CourseRegistration = lazy(() => import('views/CourseRegistration'));
+const MyPRofile = lazy(() => import('components/UsersManagement/MyProfile'));
+const StudentsCourses = lazy(() => import('views/StudentsCourses'));
 
 const sharedRoutes: ISharedRoutes = {
   LOGIN: {
@@ -50,7 +71,15 @@ const sharedRoutes: ISharedRoutes = {
     private: false,
     showNavigation: false,
     Component: GeneratePassword,
-  }
+  },
+  MY_PROFILE: {
+    id: 'MY_PROFILE',
+    path: '/profile',
+    exact: true,
+    private: false,
+    showNavigation: true,
+    Component: MyPRofile,
+  },
 };
 
 const adminRoutes: IAdminRoutes = {
@@ -60,6 +89,7 @@ const adminRoutes: IAdminRoutes = {
     exact: true,
     private: true,
     showNavigation: true,
+    isVisible: true,
     configuration: {
       order: 1,
       isDisabled: false,
@@ -73,6 +103,7 @@ const adminRoutes: IAdminRoutes = {
     exact: true,
     private: true,
     showNavigation: true,
+    isVisible: true,
     configuration: {
       order: 2,
       isDisabled: false,
@@ -86,18 +117,243 @@ const adminRoutes: IAdminRoutes = {
     exact: true,
     private: true,
     showNavigation: true,
+    isVisible: true,
     configuration: {
       order: 4,
-      isDisabled: true,
+      isDisabled: false,
       label: 'announcements',
     },
-    Component: () => <div></div>, // replace with real component
+    Component: Announcements, // replace with real component
+  },
+  ACADEMIC_CALENDAR: {
+    id: 'CALENDAR',
+    path: '/calendar',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 4,
+      isDisabled: false,
+      label: 'Academic Calendar',
+    },
+    Component: AcademicCalendar, // replace with real component
+  },
+  ADD_COURSE: {
+    id: 'COURSES_MANAGEMENT',
+    path: '/courses/add',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: false,
+    configuration: {
+      label: 'Courses management',
+    },
+    Component: Details,
+  },
+};
+
+const professorsRoutes: IProfessorRoutes = {
+  HOME: {
+    id: 'HOME',
+    path: '/home',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'Home',
+    },
+    Component: ProfessorsHome,
+  },
+  CALENDAR: {
+    id: 'CALENDAR',
+    path: '/calendar',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'Calendar',
+    },
+    Component: ProfessorsCalendar,
+  },
+  OFFERED_COURSES: {
+    id: 'OFFERED_COURSES',
+    path: '/offered-courses',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'Offered Courses',
+    },
+    Component: OfferedCourses,
+  },
+  OFFERED_COURSES_PREVIEW: {
+    id: 'OFFERED_COURSESssss',
+    path: '/offered-courses/123',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: false,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'Offered Courses',
+    },
+    Component: OfferedCoursesPreview,
+  },
+  MY_COURSES: {
+    id: 'MY_COURSES',
+    path: '/my-courses',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'My Courses',
+    },
+    Component: MyCourses,
+  },
+  COURSE_DETAILS: {
+    id: 'COURSE_DETAILS',
+    path: '/course-details/:param',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: false,
+    configuration: {
+      label: 'My Courses',
+    },
+    Component: CourseDetails,
+  },
+};
+
+const studentsRoutes: IStudentRoutes = {
+  HOME: {
+    id: 'HOME',
+    path: '/home',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'Home',
+    },
+    Component: StudentsHome,
+  },
+  COURSE_DETAILS: {
+    id: 'COURSE_DETAILS',
+    path: '/course-details/:param',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: false,
+    configuration: {
+      label: 'My Courses',
+    },
+    Component: CourseDetails,
+  },
+
+  COURSE_REGISTRATION: {
+    id: 'COURSE_REGISTRATION',
+    path: '/course-registration',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'Course Registration',
+    },
+    Component: CourseRegistration,
+  },
+  MY_COURSES: {
+    id: 'MY_COURSES',
+    path: '/my-courses',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'My Courses',
+    },
+    Component: StudentsCourses,
+  },
+  ATTENDANCE: {
+    id: 'ATteNDANCE',
+    path: '/course-detailss/:param',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: false,
+    configuration: {
+      order: 1,
+      isDisabled: false,
+      label: 'My Courses',
+    },
+    Component: Details,
+  },
+  GRADE_DETAILS: {
+    id: 'GRADE_DETAILS',
+    path: '/documents',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      isDisabled: true,
+      label: 'Grade Details',
+    },
+    Component: () => <></>,
+  },
+  ATTENDANCE2: {
+    id: 'ATteNDANCE2',
+    path: '/attendance',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      isDisabled: true,
+      label: 'Attendance',
+    },
+    Component: () => <></>,
+  },
+  DOCUMENTS: {
+    id: 'DOCUMENTS',
+    path: '/documents',
+    exact: true,
+    private: true,
+    showNavigation: true,
+    isVisible: true,
+    configuration: {
+      isDisabled: true,
+      label: 'Documents',
+    },
+    Component: () => <></>,
   },
 };
 
 export const routes: IRoutes = {
   ...sharedRoutes,
   ...adminRoutes,
+  ...professorsRoutes,
+  ...studentsRoutes,
 };
 
 export const redirectTo = (route: string) => <Redirect to={route} />;
@@ -128,32 +384,41 @@ export const overwriteSharedRoot = (user: IUser) => {
     case USER_ROLES.ADMIN:
       overwriteSharedRootRoute(adminRoutes.COURSES_MANAGEMENT);
       break;
+    case USER_ROLES.PROFESSOR:
+      overwriteSharedRootRoute(professorsRoutes.HOME);
+      break;
+    case USER_ROLES.STUDENT:
+      overwriteSharedRootRoute(studentsRoutes.HOME);
+      break;
     default:
       break;
   }
 };
 
-const Routes = () => {
-  const location = useLocation();
-  const currentRoute = matchRoute(location.pathname);
+export const useAvailableUserRoutes = () => {
   const activeUser = useSelector(getUser);
 
   const availableUserRoutes = useMemo(() => {
     switch (activeUser?.role) {
       case USER_ROLES.ADMIN:
-        const routes = { ...sharedRoutes, ...adminRoutes };
-
-        return Object.values(routes);
+        return Object.values({ ...sharedRoutes, ...adminRoutes });
       case USER_ROLES.PROFESSOR:
-        // todo
-        return;
+        return Object.values({ ...sharedRoutes, ...professorsRoutes });
       case USER_ROLES.STUDENT:
-        // todo
-        return;
+        return Object.values({ ...sharedRoutes, ...studentsRoutes });
       default:
         return Object.values(sharedRoutes);
     }
   }, [activeUser]) as IRoute[] | IConfigurableRoute[];
+
+  return availableUserRoutes;
+};
+
+const Routes = () => {
+  const location = useLocation();
+  const currentRoute = matchRoute(location.pathname);
+  const availableUserRoutes = useAvailableUserRoutes();
+  const activeUser = useSelector(getUser);
 
   return (
     <Suspense fallback={<CenteredLoader />}>

@@ -3,7 +3,7 @@ import ITableColumn from 'models/ITableColumn';
 import { TableWrapper } from './Table.styles';
 
 interface IProps {
-  columns: ITableColumn[];
+  columns?: ITableColumn[];
   children: React.ReactNode;
   // onSort?: (sortBy: string, sortOrder: SORT_ORDER) => void;
 }
